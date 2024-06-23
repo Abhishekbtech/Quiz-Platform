@@ -27,7 +27,8 @@ const App: React.FC = () => {
 
   const handleSubmitQuiz = (submittedAnswers: string[]) => {
     setAnswers(submittedAnswers);
-  }
+  };
+
   return (
     <Router>
       <div>
@@ -37,7 +38,13 @@ const App: React.FC = () => {
           <Route path="/quizform" element={<QuizForm onCreateQuiz={handleCreateQuiz} />} />
           <Route
             path="/quiz"
-            element={createdQuiz ? <Quiz quiz={createdQuiz} onSubmitQuiz={handleSubmitQuiz} /> : <div className='mt-50 flex items-center justify-center h-full text-[50] font-extrabold'>No quiz available</div>}
+            element={
+              createdQuiz ? (
+                <Quiz quiz={createdQuiz} onSubmitQuiz={handleSubmitQuiz} />
+              ) : (
+                <div className='mt-50 flex items-center justify-center h-full text-[50] font-extrabold'>No quiz available</div>
+              )
+            }
           />
           <Route path="/result" element={<Result quiz={createdQuiz} answers={answers} />} />
         </Routes>
