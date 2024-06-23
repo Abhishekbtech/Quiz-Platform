@@ -12,6 +12,7 @@ Creating an online quiz platform with the specified requirements involves integr
 ## Functionality Overview
 
 ### Quiz Creation (Admin)
+- First login with admin (username) and password (Password)
 - Admin can create quizzes with multiple-choice questions and specify correct answers.
 - Each question should be associated with a correct answer.
 - Validation and error handling for form inputs.
