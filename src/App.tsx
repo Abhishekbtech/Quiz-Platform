@@ -18,7 +18,7 @@ interface Quizs {
 }
 
 const App: React.FC = () => {
-  const [createdQuiz, setCreatedQuiz] = useState<Quizs | null>(null);
+  const [createdQuiz, setCreatedQuiz] = useState<Quizs>();
   const [answers, setAnswers] = useState<string[]>([]);
 
   const handleCreateQuiz = (quiz: Quizs) => {
@@ -39,10 +39,8 @@ const App: React.FC = () => {
           <Route
             path="/quiz"
             element={
-              createdQuiz ? (
+               (
                 <Quiz quiz={createdQuiz} onSubmitQuiz={handleSubmitQuiz} />
-              ) : (
-                <div className='mt-50 flex items-center justify-center h-full text-[50] font-extrabold'>No quiz available</div>
               )
             }
           />
