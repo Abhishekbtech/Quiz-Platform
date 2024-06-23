@@ -10,11 +10,22 @@ interface Quiz {
 }
 
 interface ResultProps {
-    quiz: Quiz;
+    quiz: Quiz | null;
     answers: string[];
 }
 
 const Result: React.FC<ResultProps> = ({ quiz, answers }) => {
+    if (!quiz || answers.length !== quiz.questions.length) {
+        return (
+            <div className="flex items-center justify-center h-screen">
+                <div className="bg-yellow-300 shadow-md rounded-lg p-8 max-w-lg w-full">
+                    <h2 className="text-3xl mb-6 text-center">Quiz Results</h2>
+                    <p className="text-red-500 text-xl text-center">Quiz data is incomplete.</p>
+                </div>
+            </div>
+        );
+    }
+
     const score = quiz.questions.reduce((acc, question, index) => {
         return acc + (question.answer === answers[index] ? 1 : 0);
     }, 0);
