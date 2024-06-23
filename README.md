@@ -1,30 +1,63 @@
-# React + TypeScript + Vite
+# An Online Quiz Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Creating an online quiz platform with the specified requirements involves integrating React for frontend development, Vite for build optimization, TypeScript for type safety, and Tailwind CSS for styling.
 
-Currently, two official plugins are available:
+## Technologies Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React: For building UI components and managing application state.
+- Vite: Fast build tool that provides a great development experience.
+- TypeScript: Adds static types to JavaScript to improve code quality and developer productivity.
+- Tailwind CSS: Utility-first CSS framework for styling with a focus on responsiveness and mobile-first design.
 
-## Expanding the ESLint configuration
+## Functionality Overview
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Quiz Creation (Admin)
+- Admin can create quizzes with multiple-choice questions and specify correct answers.
+- Each question should be associated with a correct answer.
+- Validation and error handling for form inputs.
 
-- Configure the top-level `parserOptions` property like this:
+### Quiz Taking (User)
+- Users can select and take quizzes.
+- Questions are presented one at a time with options to choose from.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+### Submit Quiz:
+- After completing the quiz, users submit their answers.
+- Score calculation based on correct answers.
+- Results stored locally for review.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### View Results:
+- Users can view their scores immediately after completing the quiz.
+- Correct answers are displayed for review purposes.
+
+### Responsive Design:
+- Tailwind CSS used for responsive design to ensure compatibility with various screen sizes.
+
+### Animations:
+- Tailwind CSS animations utilized for transitions between quiz components and displaying results.
+
+## Installation and Setup
+### Prerequisites
+
+- Node.js and npm installed on your machine.
+
+### Steps
+
+1. Clone the repository:
+    ```sh
+        git clone https://github.com/Abhishekbtech/Quiz-Platform.git
+        cd my-quizapp
+    ```
+2. Install dependencies:
+    ```sh
+        npm install
+    ```
+3. Start the development server
+    ```sh
+        npm run dev
+    ```
+
+4. The application will be available at `http://localhost:5173`
+
+## Deploy on Vercel
+
+Deployment link of my project `https://to-do-lovat-tau.vercel.app/`
