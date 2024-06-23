@@ -61,4 +61,4 @@ Creating an online quiz platform with the specified requirements involves integr
 
 ## Deploy on Vercel
 
-Deployment link of my project `https://to-do-lovat-tau.vercel.app/`
+Deployment link of my project `https://quiz-platform-psi.vercel.app/`
