@@ -17,8 +17,29 @@ interface Quizs {
   questions: Question[];
 }
 
+// Quiz component updated to handle nullable quiz prop
+interface QuizProps {
+  quiz: Quizs | null;
+  onSubmitQuiz: (submittedAnswers: string[]) => void;
+}
+
+const QuizComponent: React.FC<QuizProps> = ({ quiz, onSubmitQuiz }) => {
+  if (!quiz) {
+    return (
+      <div className='mt-50 flex items-center justify-center h-full text-[50] font-extrabold'>
+        No quiz available
+      </div>
+    );
+  }
+
+  // Render quiz components
+  return (
+    <Quiz quiz={quiz} onSubmitQuiz={onSubmitQuiz} />
+  );
+};
+
 const App: React.FC = () => {
-  const [createdQuiz, setCreatedQuiz] = useState<Quizs>();
+  const [createdQuiz, setCreatedQuiz] = useState<Quizs | null>(null);
   const [answers, setAnswers] = useState<string[]>([]);
 
   const handleCreateQuiz = (quiz: Quizs) => {
@@ -38,11 +59,7 @@ const App: React.FC = () => {
           <Route path="/quizform" element={<QuizForm onCreateQuiz={handleCreateQuiz} />} />
           <Route
             path="/quiz"
-            element={
-               (
-                <Quiz quiz={createdQuiz} onSubmitQuiz={handleSubmitQuiz} />
-              )
-            }
+            element={<QuizComponent quiz={createdQuiz} onSubmitQuiz={handleSubmitQuiz} />}
           />
           <Route path="/result" element={<Result quiz={createdQuiz} answers={answers} />} />
         </Routes>
